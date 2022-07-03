@@ -1,0 +1,44 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "create symlnk .aws",
+            "type": "shell",
+            "command": "ln -s ${workspaceFolder}/.aws ~/.aws",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "yarn",
+            "type": "shell",
+            "command": "yarn",
+            "options": {
+                "cwd": "${workspaceFolder}}/app"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "yarn start",
+            "type": "shell",
+            "command": "yarn start",
+            "options": {
+                "cwd": "${workspaceFolder}/app"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "yarn build",
+            "type": "shell",
+            "command": "yarn build",
+            "options": {
+                "cwd": "${workspaceFolder}/app"
+            },
+            "problemMatcher": []
+        }
+
+    ]
+}
