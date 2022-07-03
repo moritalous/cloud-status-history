@@ -24,20 +24,20 @@ const AppLayout: FunctionComponent = ({ children }) => {
         () => <HeaderBase title="Cloud status history"  />,
         []
     );
-    const Breadcrumbs = useMemo(() => <BreadcrumbGroup rootPath="" />, []);
     const SideNavigation = useMemo(() => {
         return (
             <SideNavigationBase
                 header={{ text: 'Cloud', href: '/' }}
                 items={[
-                    { text: 'AWS', type: SideNavigationItemType.LINK, href: '/' },
+                    { text: 'AWS', type: SideNavigationItemType.LINK, href: '/aws' },
+                    { text: 'GCP', type: SideNavigationItemType.LINK, href: '/gcp' },
                 ]}
             ></SideNavigationBase>
         );
     }, []);
 
     return (
-        <AppLayoutBase header={Header} navigation={SideNavigation} breadcrumbs={Breadcrumbs}>
+        <AppLayoutBase header={Header} navigation={SideNavigation} >
             {children}
         </AppLayoutBase>
     );
