@@ -17,7 +17,7 @@ export class CdkStack extends Stack {
     const bucket = new aws_s3.Bucket(this, 'website', {
     })
 
-    new aws_cloudfront.CloudFrontWebDistribution(this, 'webdistribution', {
+    const distribution = new aws_cloudfront.CloudFrontWebDistribution(this, 'webdistribution', {
       originConfigs: [
         {
           s3OriginSource: {
@@ -32,14 +32,23 @@ export class CdkStack extends Stack {
 
           },
           behaviors: [{pathPattern: 'data.json'}]
+        },
+        {
+          customOriginSource: {
+            domainName: 'status.cloud.google.com',
+
+          },
+          behaviors: [{pathPattern: 'incidents.json'}]
         }
       ],
-      defaultRootObject: 'index.html'
+      defaultRootObject: 'index.html',
+      errorConfigurations: [{errorCode: 403, responseCode: 200, responsePagePath: '/'}]
     })
 
     new aws_s3_deployment.BucketDeployment(this, 'deploy', {
       sources: [aws_s3_deployment.Source.asset('../app/build/')],
-      destinationBucket: bucket
+      destinationBucket: bucket,
+      distribution: distribution
     })
 
   }
