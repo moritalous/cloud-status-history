@@ -18,6 +18,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NorthStarThemeProvider from 'aws-northstar/components/NorthStarThemeProvider';
 import AppLayout from './components/AppLayout';
 import AWS from './components/AWS';
+import GCP from './components/GCP';
+
 
 
 const withLayout =
@@ -35,6 +37,9 @@ const App = () => {
             <Router>
                 <Switch>
                     <Route exact path="/" component={withLayout(AWS)}></Route>
+                    <Route exact path="/aws" component={withLayout(AWS)}></Route>
+                    <Route exact path="/gcp" component={withLayout(GCP)}></Route>
+
                 </Switch>
             </Router>
         </NorthStarThemeProvider>
