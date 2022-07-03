@@ -38,7 +38,24 @@
                 "cwd": "${workspaceFolder}/app"
             },
             "problemMatcher": []
+        },
+        {
+            "label": "cdk bootstrap",
+            "type": "shell",
+            "command": "npx cdk bootstrap",
+            "options": {
+                "cwd": "${workspaceFolder}/cdk"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "cdk deploy",
+            "type": "shell",
+            "command": "npx cdk deploy",
+            "options": {
+                "cwd": "${workspaceFolder}/cdk"
+            },
+            "problemMatcher": []
         }
-
     ]
 }
