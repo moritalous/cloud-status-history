@@ -28,3 +28,37 @@ export type Data = {
     archive: Status[],
     current: Status[],
 }
+
+export type gcpStatus = {
+    id: string;
+    number: string;
+    begin: string;
+    created: string;
+    end: string;
+    modified: string;
+    external_desc: string;  
+    updates: gcpStatusUpdates[];
+    most_recent_update: gcpStatusUpdates;
+    status_impact: string;  
+    severity: string;  
+    service_key: string;  
+    service_name: string;  
+    affected_products: gcpTitleAndId[];
+    uri: string;  
+    currently_affected_locations: gcpTitleAndId[];
+    previously_affected_locations: gcpTitleAndId[];
+}
+
+export type gcpStatusUpdates = {
+    created: string;
+    modified: string;
+    when: string;
+    text: string;
+    status: string;
+    affected_locations: gcpTitleAndId[];
+}
+
+export type gcpTitleAndId = {
+    title: string;
+    id: string;
+}
