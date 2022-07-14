@@ -1,4 +1,4 @@
- import { FunctionComponent } from 'react';
+ import { FunctionComponent, ReactElement } from 'react';
  import Stack from 'aws-northstar/layouts/Stack';
  import StatusTable from './components/StatusTable';
 
