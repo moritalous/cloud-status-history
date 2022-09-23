@@ -18,7 +18,7 @@ export class CdkStack extends Stack {
     })
 
     const certificate = aws_certificatemanager.Certificate.fromCertificateArn(this, 'cert', 
-      'arn:aws:acm:us-east-1:884169927585:certificate/fdf4bdad-b957-40c6-879e-5ce5a90f28bc')
+      'arn:aws:acm:us-east-1:884169927585:certificate/29b2595e-12e7-42d1-a01e-e8825bdfb425')
 
     const distribution = new aws_cloudfront.CloudFrontWebDistribution(this, 'webdistribution', {
       originConfigs: [
@@ -62,7 +62,7 @@ export class CdkStack extends Stack {
       defaultRootObject: 'index.html',
       errorConfigurations: [{errorCode: 403, responseCode: 200, responsePagePath: '/'}],
       viewerCertificate: aws_cloudfront.ViewerCertificate.fromAcmCertificate(certificate, {
-        aliases: ['cloud-status.twelve.tk'],
+        aliases: ['cloud-status.staticvoid.tk'],
         securityPolicy: aws_cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021
       })
     })
